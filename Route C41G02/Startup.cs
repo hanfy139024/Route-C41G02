@@ -1,13 +1,16 @@
-using Microsoft.AspNetCore.Builder;
+ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Route_C41G02
 {
@@ -24,8 +27,30 @@ namespace Route_C41G02
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-        }
+            // services.AddScoped<DbContextOptions<ApplicationDbContext>>();
+            // services.AddScoped<DbContextOptions<ApplicationDbContext>>();
+            //services.AddDbContext<ApplictionDbContext>(
 
+
+
+            //    contextLifetime: ServiceLifetime.Singleton,
+            //    optionsLifetime: ServiceLifetime.Singleton
+
+
+
+
+            //    );
+
+            services.AddDbContext<AppContext>(options =>
+            {
+                options.UseSqlServer("Server= .; Database =MVCApplictionG02; Trusted_Connection=True")
+
+
+
+            });
+
+
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

@@ -12,16 +12,20 @@ namespace Route.C41.G02.DAL.Data
 {
     internal class ApplictionDbContext :DbContext
     {
-
+        public ApplictionDbContext(DbContextOptions<ApplictionDbContext> Options): base(Options)   
+        {
+            
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
          => optionsBuilder.UseSqlServer("Serever =.;Database =MVCApplictionG02;Trusted_Connection=");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.ApplyConfiguration<Department>(new DepartmentConfigurations());
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly();
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
+        public DbSet<Department> Department { get; set; }   
 
     }
 }
