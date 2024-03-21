@@ -16,10 +16,12 @@ namespace Route_C41G02
 {
     public class Startup
     {
+        public IConfiguration configuration { get; } = null;
         public Startup(IConfiguration configuration)
         {
+
             Configuration = configuration;
-        }
+        }   
 
         public IConfiguration Configuration { get; }
 
@@ -27,8 +29,8 @@ namespace Route_C41G02
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            // services.AddScoped<DbContextOptions<ApplicationDbContext>>();
-            // services.AddScoped<DbContextOptions<ApplicationDbContext>>();
+            // services.AddScoped<DbContextOptions<ApplictionDbContext>>();
+            //  services.AddScoped<DbContextOptions<ApplicationDbContext>>();
             //services.AddDbContext<ApplictionDbContext>(
 
 
@@ -41,9 +43,9 @@ namespace Route_C41G02
 
             //    );
 
-            services.AddDbContext<AppContext>(options =>
+            services.AddDbContext<ApplictionDbContext>(options =>
             {
-                options.UseSqlServer("Server= .; Database =MVCApplictionG02; Trusted_Connection=True")
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
 
 
