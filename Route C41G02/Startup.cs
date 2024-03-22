@@ -43,7 +43,7 @@ namespace Route_C41G02
 
             //    );
 
-            services.AddDbContext<ApplictionDbContext>(options =>
+             services.AddDbContext<ApplictionDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 

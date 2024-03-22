@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Route.C41.G02.DAL.Data.Configurations
 {
-    internal class Departmentconfigurations : IEntityTypeConfiguration<Department>
+     class Departmentconfigurations : IEntityTypeConfiguration<Department>
     {
         
 

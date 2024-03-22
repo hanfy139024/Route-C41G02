@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Route.C41.G02.DAL.Modles
 {
-    internal class Department
+    public class Department
     {
         public int Id { get; set; }
         [Required]

@@ -2,5 +2,6 @@
 {
     internal class ApplictionDbContext
     {
+        internal object Departmant;
     }
 }
