@@ -1,6 +1,6 @@
 using System;
 
-namespace Route_C41G02.Models
+namespace Route_C41G02.ViweModeLs
 {
     public class ErrorViewModel
     {

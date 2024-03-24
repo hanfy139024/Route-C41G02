@@ -16,9 +16,9 @@ namespace Route.C41.G02.DAL.Data.Configurations
 
         public void Configure(EntityTypeBuilder<Department> builder)
         {
-            builder.Property(D D.ld).UseldentityC01umn(10, 10);
-            builder.Property(D D.Code).HasC01umnType("varchar").HasMaxLength(50).IsRequired();
-            builder.Property(D D.Name).HasC01umnType("varchar").HasMaxLength(50).ISRequired();
+            builder.Property(D=> D.Id).UseIdentityColumn(10, 10);
+            builder.Property(D=> D.Code).HasColumnName("varchar").HasMaxLength(50).IsRequired();
+            builder.Property(D =>D.Name).HasColumnName("varchar").HasMaxLength(50).IsRequired();
 
         }
     }

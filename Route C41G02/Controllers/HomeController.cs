@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Route_C41G02.Models;
+using Route_C41G02.ViweModeLs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
