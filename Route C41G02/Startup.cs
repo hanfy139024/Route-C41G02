@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Route_C41G02.Repostery;
 using System;
 
 using System.Collections.Generic;
@@ -38,12 +39,13 @@ namespace Route_C41G02
             //    contextLifetime: ServiceLifetime.Singleton,
             //    optionsLifetime: ServiceLifetime.Singleton
 
+            services.AddScoped<DepartmentRepository, DepartmentRepository>();   
 
 
 
             //    );
 
-           services.Add<ApplictionDbContext>(options =>
+           services.AddScoped<ApplictionDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
