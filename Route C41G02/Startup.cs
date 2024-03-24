@@ -1,10 +1,11 @@
- using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Route_C41G02.Repostery;
 using System;
 
@@ -22,7 +23,7 @@ namespace Route_C41G02
         {
 
             Configuration = configuration;
-        }   
+        }
 
         public IConfiguration Configuration { get; }
 
@@ -39,19 +40,20 @@ namespace Route_C41G02
             //    contextLifetime: ServiceLifetime.Singleton,
             //    optionsLifetime: ServiceLifetime.Singleton
 
-            services.AddScoped<DepartmentRepository, DepartmentRepository>();   
+            services.AddScoped<DepartmentRepository, DepartmentRepository>();
 
 
 
             //    );
 
-           services.AddScoped<ApplictionDbContext>(options =>
+            services.AddDbContext<AppDbContext>(Options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+
+                Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
 
 
-            });
+             });
 
 
         }
@@ -82,5 +84,9 @@ namespace Route_C41G02
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+    }
+
+    internal class AppDbContext
+    {
     }
 }
